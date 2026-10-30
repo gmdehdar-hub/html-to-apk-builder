@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.daudsoftech.htmltoapk.builder'
+    namespace 'com.daudsoftech.htmltoapkbuilder'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.daudsoftech.htmltoapk.builder"
+        applicationId "com.daudsoftech.htmltoapkbuilder"
         minSdk 21
         targetSdk 34
         versionCode 1
