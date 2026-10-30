@@ -11,23 +11,22 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
-      - name: Find gradlew
+      - name: Fix Project
         run: |
-          echo "Listing files:"
+          rm -f app/src/main/res/drawable/app_icon.svg
+          find . -name "app_icon.svg" -delete
           ls -la
-          echo "Finding gradlew:"
-          find . -name gradlew -type f
-          chmod +x $(find . -name gradlew -type f)
+          if [ -f "./html-to-apk-builder/gradlew" ]; then
+            echo "Moving files from subfolder to root"
+            mv ./html-to-apk-builder/* ./
+            rm -rf ./html-to-apk-builder
+          fi
       - name: Build APK
         run: |
-          GRADLEW=$(find . -name gradlew -type f | head -1)
-          echo "Using gradlew at: $GRADLEW"
-          $GRADLEW assembleDebug --stacktrace
+          chmod +x ./gradlew
+          ./gradlew assembleDebug
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: app-debug-apk
-          path: "**/app/build/outputs/apk/debug/*.apk"
-
+          path: app/build/outputs/apk/debug/*.apk
