@@ -41,6 +41,7 @@ import androidx.webkit.WebViewClientCompat;
 import net.lingala.zip4j.ZipFile;
 import net.lingala.zip4j.exception.ZipException;
 
+import com.daudsoftech.htmltoapkbuilder.R;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
