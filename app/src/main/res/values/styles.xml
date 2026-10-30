@@ -1,0 +1,8 @@
+<resources>
+    <style name="Theme.HTMLToAPK" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryDarkColor</item>
+        <item name="android:statusBarColor">@color/statusBarColor</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>

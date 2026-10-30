@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+  <title>Cyber Dash</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="game-container">
+    <canvas id="gameCanvas"></canvas>
+    
+    <div id="ui-overlay">
+      <div class="hud">
+        <div class="stat"><span class="label">SCORE</span> <span id="scoreVal">0</span></div>
+        <div class="stat"><span class="label">BEST</span> <span id="bestVal">0</span></div>
+      </div>
+      
+      <div id="start-screen" class="screen">
+        <h1 class="glow-title">CYBER DASH</h1>
+        <p class="subtitle">HTML5 TO ANDROID APK DEMO</p>
+        <button id="startBtn" class="action-btn">TAP TO PLAY</button>
+      </div>
+
+      <div id="game-over-screen" class="screen hidden">
+        <h2 class="alert-title">SYSTEM CRASH</h2>
+        <p class="final-score">SCORE: <span id="finalScoreVal">0</span></p>
+        <button id="restartBtn" class="action-btn">RETRY RUN</button>
+      </div>
+
+      <div id="touch-controls">
+        <button id="jumpBtn" class="touch-btn">JUMP</button>
+        <button id="duckBtn" class="touch-btn">DUCK</button>
+      </div>
+    </div>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>

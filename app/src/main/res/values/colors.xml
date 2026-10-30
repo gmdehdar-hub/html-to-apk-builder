@@ -1,0 +1,7 @@
+<resources>
+    <color name="primaryColor">#059669</color>
+    <color name="primaryDarkColor">#047857</color>
+    <color name="statusBarColor">#0b1120</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+</resources>
