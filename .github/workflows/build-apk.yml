@@ -11,22 +11,16 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-      - name: Fix Project
+      - name: Clean Bad Files
         run: |
-          rm -f app/src/main/res/drawable/app_icon.svg
+          find . -name "*.svg" -path "*/drawable/*" -delete
           find . -name "app_icon.svg" -delete
-          ls -la
-          if [ -f "./html-to-apk-builder/gradlew" ]; then
-            echo "Moving files from subfolder to root"
-            mv ./html-to-apk-builder/* ./
-            rm -rf ./html-to-apk-builder
-          fi
       - name: Build APK
         run: |
-          chmod +x ./gradlew
-          ./gradlew assembleDebug
+          chmod +x gradlew
+          ./gradlew clean assembleDebug --no-configuration-cache
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: app-debug-apk
-          path: app/build/outputs/apk/debug/*.apk
+          path: app/build/outputs/apk/debug/app-debug.apk
