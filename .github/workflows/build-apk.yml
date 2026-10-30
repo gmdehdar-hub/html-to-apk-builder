@@ -11,14 +11,15 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
+      - uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: 8.7
       - name: Clean Bad Files
         run: |
           find . -name "*.svg" -path "*/drawable/*" -delete
           find . -name "app_icon.svg" -delete
       - name: Build APK
-        run: |
-          chmod +x gradlew
-          ./gradlew clean assembleDebug --no-configuration-cache
+        run: gradle clean assembleDebug --no-configuration-cache
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
